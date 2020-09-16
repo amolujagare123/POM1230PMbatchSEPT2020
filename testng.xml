@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="invoice plane">
+
+    <test name="outer pages">
+    <classes>
+        <class name ="regression.LoginTest"/>
+        <class name ="regression.ForgotPasswordTest"/>
+    </classes>
+
+    </test>
+
+</suite>

@@ -24,11 +24,19 @@ public class Login {
     @FindBy (xpath="//button[@type='submit']")
     WebElement btnLogin;
 
+    @FindBy (xpath="//a[contains(text(),'I forgot my password')]")
+    WebElement lnkForgotPass;
+
     public Login(WebDriver driver)
     {
         PageFactory.initElements(driver,this);
     }
 
+    public void clickForgotPass()
+    {
+        lnkForgotPass.click();
+    }
+    
     public void setTxtUserName(String username)
     {
         txtUserName.sendKeys(username);

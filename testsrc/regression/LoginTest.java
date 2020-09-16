@@ -5,25 +5,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.Login;
+import util.OpenUrl;
+import utilities.Driver;
 
-public class LoginTest {
+import java.io.IOException;
+
+import static utilities.ConfigReader.*;
+
+public class LoginTest extends OpenUrl {
 
 
     @Test
-    public void loginTest()
-    {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://localhost:82/afternoon-ip/");
+    public void loginTest() throws IOException {
 
         Login login = new Login(driver);
 
-        login.setTxtUserName("amolujagare@gmail.com");
-        login.setTxtPassword("admin123");
+        login.setTxtUserName(getUsername());
+        login.setTxtPassword(getPassword());
         login.clickLoginButton();
 
     }
-
 
 }
