@@ -12,7 +12,7 @@ import static utilities.ConfigReader.getUrl;
 public class OpenUrl {
 
 
-    public static WebDriver driver = Driver.getDriver(Driver.DriverType.FIREFOX);
+    public static WebDriver driver = Driver.getDriver(Driver.DriverType.CHROME);
 
     @BeforeClass
     public void openUrl() throws IOException {
