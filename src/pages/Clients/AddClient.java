@@ -50,6 +50,7 @@ public class AddClient {
     }
 
 
+
     /*@FindBy (id="client_state") WebElement element ;
 
     @FindBy (id="client_zip") WebElement element ;
@@ -72,9 +73,65 @@ public class AddClient {
 
     @FindBy (id="client_vat_id") WebElement element ;
 
-    @FindBy (id="client_vat_id") WebElement element ;*/
+    @FindBy (id="client_tax_code") WebElement element ;*/
 
+    public void setTxtState(String state)
+    {
 
+    }
 
+    public void setTxtZip(String zip)
+    {
+
+    }
+    public void setTxtCountry(String country)
+    {
+
+    }
+
+    public void setTxtGender(String gender)
+    {
+
+    }
+
+    public void setTxtBirthdate(String birthdate)
+    {
+
+    }
+
+    public void setTxtPhone(String phnone)
+    {
+
+    }
+
+    public void setTxtFax(String fax)
+    {
+
+    }
+
+    public void setTxtMobile(String mobile)
+    {
+
+    }
+
+    public void setTxtEmail(String email)
+    {
+
+    }
+
+    public void setTxtWeb(String web)
+    {
+
+    }
+
+    public void setTxtVat(String vat)
+    {
+
+    }
+
+    public void setTxtTax(String tax)
+    {
+
+    }
 
 }
