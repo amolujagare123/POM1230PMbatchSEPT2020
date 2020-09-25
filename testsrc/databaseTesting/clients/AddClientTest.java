@@ -1,5 +1,6 @@
 package databaseTesting.clients;
 
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
@@ -11,6 +12,7 @@ import java.sql.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 
+import static utilities.Conversion.*;
 import static utilities.DataUtil.getMyData;
 
 public class AddClientTest extends DoLogin {
@@ -27,7 +29,7 @@ public class AddClientTest extends DoLogin {
 
         expected.add(clientName);
         expected.add(surname);
-        expected.add(language);
+        expected.add(language.toLowerCase());
         expected.add(add1);
         expected.add(add2);
         expected.add(city);
@@ -46,9 +48,6 @@ public class AddClientTest extends DoLogin {
 
 
         System.out.println("Expecded List:\n"+expected);
-
-
-
 
 
         Menu menu = new Menu(driver);
@@ -115,14 +114,28 @@ public class AddClientTest extends DoLogin {
             actual.add(rs.getString("client_city"));
             actual.add(rs.getString("client_state"));
             actual.add(rs.getString("client_zip"));
-            actual.add(rs.getString("client_country"));
+
+
+            String shortCountry = rs.getString("client_country");
+            String fullCountry = convertCountrty(shortCountry);
+            actual.add(fullCountry); // now in the actual list full form will be added
+
+
+            //actual.add(rs.getString("client_country"));
             actual.add(rs.getString("client_phone"));
             actual.add(rs.getString("client_fax"));
             actual.add( rs.getString("client_mobile"));
             actual.add(rs.getString("client_email"));
             actual.add(rs.getString("client_web"));
-            actual.add(rs.getString("client_gender"));
-            actual.add(rs.getString("client_birthdate"));
+
+
+
+            actual.add(ConvertGenderFormat(rs.getString("client_gender")));
+
+
+            actual.add(convertDate(rs.getString("client_birthdate")));
+
+
             actual.add(rs.getString("client_vat_id"));
             actual.add( rs.getString("client_tax_code"));
 
@@ -132,6 +145,7 @@ public class AddClientTest extends DoLogin {
         System.out.println("actual list:\n"+actual);
 
 
+        Assert.assertEquals(actual,expected);
 
     }
 
