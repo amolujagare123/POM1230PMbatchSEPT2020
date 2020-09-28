@@ -29,7 +29,7 @@ public class DataUtil {
         for(int i=0;i<rowCount;i++)
         {
 
-            for(int j=0;j<18;j++)
+            for(int j=0;j<colCount;j++)
             {
                data[i][j] = sheet.getRow(i+headerCount).getCell(j).toString().trim();
             }

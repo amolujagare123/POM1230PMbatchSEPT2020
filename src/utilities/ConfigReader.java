@@ -27,4 +27,25 @@ public class ConfigReader {
         return  getPropertiesObject().getProperty("pass");
     }
 
+
+    public static String getDbServer() throws IOException {
+        return  getPropertiesObject().getProperty("dbServer");
+    }
+
+
+
+    public static String getDbUser() throws IOException {
+        return  getPropertiesObject().getProperty("dbUser");
+    }
+
+
+
+    public static String getDbPassword() throws IOException {
+        return  getPropertiesObject().getProperty("dbPassword");
+    }
+
+    public static String getDbName() throws IOException {
+        return  getPropertiesObject().getProperty("dbName");
+    }
+
 }

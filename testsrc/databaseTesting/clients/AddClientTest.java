@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pages.Clients.AddClient;
 import pages.Menu;
 import util.DoLogin;
+import utilities.DbCon;
 
 import java.io.IOException;
 import java.sql.*;
@@ -22,7 +23,7 @@ public class AddClientTest extends DoLogin {
     public void addClientText(String clientName,String surname,String language,String add1,
                               String add2,String city,String state,String zip,String country,
                               String phone,String fax,String mobile,String email,String web,
-                              String gender,String birthdate,String vat,String tax) throws ParseException, ClassNotFoundException, SQLException {
+                              String gender,String birthdate,String vat,String tax) throws Exception {
 
 
         ArrayList<String> expected = new ArrayList<>();
@@ -78,7 +79,8 @@ public class AddClientTest extends DoLogin {
         addClient.btnSave();
 
 
-        // 1 . loading a driver
+
+      /*  // 1 . loading a driver
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -98,7 +100,14 @@ public class AddClientTest extends DoLogin {
 
         String sql = "select * from ip_clients where client_name='"+clientName+"'";
 
-        ResultSet rs = st.executeQuery(sql);
+        ResultSet rs = st.executeQuery(sql);*/
+
+
+        DbCon db = new DbCon();
+
+        String sql = "select * from ip_clients where client_name='"+clientName+"'";
+
+        ResultSet rs = db.getRecords(sql);
 
         ArrayList<String> actual = new ArrayList<>();
 

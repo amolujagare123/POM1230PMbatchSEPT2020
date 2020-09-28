@@ -7,6 +7,8 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
@@ -23,7 +25,12 @@ import static utilities.DataUtil.getMyData;
 public class AddClientDataProvidertest extends DoLogin {
 
     @Test (dataProvider = "getData")
-    public void addClientText(String clientName,String surname,String language,String add1,String add2,String city,String state,String zip,String country,String phone,String fax,String mobile,String email,String web,String gender,String birthdate,String vat,String tax) throws ParseException {
+    public void addClientText(String clientName,String surname,String language,
+                              String add1,String add2,String city,String state,
+                              String zip,String country,String phone,String fax,
+                              String mobile,String email,String web,String gender,
+                              String birthdate,String vat,String tax,String expected,
+                              String xpathActual) throws ParseException {
 
         Menu menu = new Menu(driver);
         menu.clickAddClient();
@@ -51,6 +58,20 @@ public class AddClientDataProvidertest extends DoLogin {
         addClient.setTxtVat(vat);
         addClient.setTxtTax(tax);
         addClient.btnSave();
+
+        System.out.println(expected);
+
+        String actual="";
+        try {
+
+            actual = driver.findElement(By.xpath(xpathActual)).getText();
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        Assert.assertEquals(actual,expected,"incorrect message");
 
     }
 
