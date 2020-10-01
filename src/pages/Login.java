@@ -16,16 +16,26 @@ public class Login {
     //using page factory
 
     @FindBy (id="email")
-    WebElement txtUserName;
+    public WebElement txtUserName;
 
     @FindBy (id="password")
     WebElement txtPassword;
 
     @FindBy (xpath="//button[@type='submit']")
-    WebElement btnLogin;
+    public WebElement btnLogin;
 
     @FindBy (xpath="//a[contains(text(),'I forgot my password')]")
     WebElement lnkForgotPass;
+
+    @FindBy (xpath="//div[@id='login']//h1")
+    public WebElement headerLogin ;
+
+    @FindBy (xpath="//label[@for='email']")
+    public WebElement lblEmail ;
+
+    @FindBy (xpath="//label[@for='password']")
+    WebElement lblPass ;
+
 
     public Login(WebDriver driver)
     {

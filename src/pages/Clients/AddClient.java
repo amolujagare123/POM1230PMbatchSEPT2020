@@ -32,6 +32,9 @@ public class AddClient {
     @FindBy (id="client_city") WebElement txtCity ;
 
 
+
+
+
     public AddClient(WebDriver driver)
     {
         PageFactory.initElements(driver,this);

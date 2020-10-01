@@ -1,6 +1,8 @@
 package util;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import pages.Login;
 
 import java.io.IOException;

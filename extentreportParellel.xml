@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="invoice plane" parallel="classes">
+    <listeners>
+        <listener class-name="utilities.PracticeExtentReport.util.ReportListeners"/>
+    </listeners>
+
+
+    <test name="Extent Demo">
+        <classes>
+            <class name ="utilities.PracticeExtentReport.classOne"/>
+            <class name ="utilities.PracticeExtentReport.ClassTwo"/>
+            <class name ="utilities.PracticeExtentReport.ClassThree"/>
+        </classes>
+
+    </test>
+
+</suite>

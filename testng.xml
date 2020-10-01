@@ -1,12 +1,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="invoice plane">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
 
-    <test name="outer pages">
-    <classes>
-        <class name ="regression.LoginTest"/>
-        <class name ="regression.ForgotPasswordTest"/>
-    </classes>
 
+    <test name="regression">
+            <classes>
+                <class name ="regression.LoginTest"/>
+                <class name ="regression.ForgotPasswordTest"/>
+                <class name ="regression.Clients.AddClientDataProvidertest"/>
+            </classes>
+    </test>
+
+    <test name="db Testing">
+        <classes>
+            <class name ="databaseTesting.clients.AddClientTest"/>
+        </classes>
+    </test>
+
+    <test name="UI Testing">
+        <classes>
+            <class name ="uitesting.LoginTest"/>
+        </classes>
     </test>
 
 </suite>
